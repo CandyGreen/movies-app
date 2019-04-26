@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Spinner from './components/Spinner/Spinner';
+import Movies from './components/Movies/Movies';
+import FullMovie from './components/FullMovie/FullMovie';
+import * as actions from './store/actions';
+
+class App extends Component {
+    state = {
+        search: ''
+    }
+
+    onChangeHandler = event => {
+        this.setState({ search: event.target.value });
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Switch>
+                    <Route path="/:id" render={() => <FullMovie movies={this.props.movies} />} />
+                    
+                    <Route path="/" exact render={() => {
+                        return this.props.isLoading
+                            ? <Spinner />
+                            : <Movies
+                                search={this.state.search}
+                                movies={this.props.movies}
+                                currentPage={this.props.currentPage}
+                                totalPages={this.props.totalPages}
+                                isLoading={this.props.isLoading}
+                                changed={this.onChangeHandler}
+                                getMovies={this.props.getMovies} />;
+                    }} />
+                </Switch>
+            </div>
+        );
+    }
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        movies: state.movies,
+        currentPage: state.currentPage,
+        totalPages: state.totalPages,
+        isLoading: state.isLoading
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovies: (searchString, page) => dispatch(actions.getMovies(searchString, page))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);

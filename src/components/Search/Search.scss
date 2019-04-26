@@ -1,0 +1,29 @@
+.Search {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: lighten(#eee, 4%);
+    padding: 6px 10px;
+    border-radius: 2px;
+
+    i {
+        font-size: 1rem;
+        color: #00bfff;
+        margin-right: 10px;
+    }
+    
+    input {
+        background-color: transparent;
+        transition: border-color 300ms ease;
+        border-radius: 2px;
+        border: none;
+        width: 100%;
+        font-size: 1.1rem;
+        
+        &:focus::placeholder {
+            color: #00bfff;
+        }
+    }
+
+}

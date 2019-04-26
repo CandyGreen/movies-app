@@ -1,0 +1,28 @@
+.Button {
+    border: none;
+    background-color: #00bfff;
+    color: #fff;
+    box-shadow: 0 2px 4px #111;
+    padding: 7px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition:
+        background-color 200ms ease,
+        text-shadow 200ms ease;
+
+    &:hover {
+        background-color: darken(#00bfff, 10%);
+        text-shadow: 0 0 3px #fff;
+    }
+
+    &.Disabled {
+        background-color: #cccccc99;
+
+        &:hover {
+            background-color: #cccccc99;
+            cursor: not-allowed;
+            text-shadow: none;
+        }
+    }
+}

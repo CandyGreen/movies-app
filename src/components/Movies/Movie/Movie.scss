@@ -1,0 +1,52 @@
+.Movie {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 30px;
+    min-height: 460px;
+}
+
+.Poster {
+    flex-basis: 40%;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.Description {
+    flex-basis: 60%;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h2, p {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .Link {
+        border-top: 2px solid #ccc;
+        padding-top: 20px;
+    }
+
+    a {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        transition: color 200ms ease;
+
+        &:hover {
+            color: #00bfff;
+        }
+    }
+}

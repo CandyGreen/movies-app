@@ -1,0 +1,70 @@
+/* Spinner size */
+$size: 80px;
+
+/* Inner circle width & style */
+$inner-width: 4px;
+$inner-style: dotted;
+
+/* Outer circle width & style */
+$outer-width: 5px;
+$outer-style: solid;
+
+/* Rainbow's colors */
+$red: #ff0000;
+$orange: #ffa500;
+$yellow: #e5e600;
+$green: #00e600;
+$lightblue: #098bdc;
+$blue: #0000ff;
+$violet: #800080;
+
+.Spinner, .Spinner::after {
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.Spinner {
+    width: $size;
+    height: $size;
+    display: flex;
+    border: $outer-width $outer-style $red;
+    border-top-color: transparent !important;
+    margin: auto;
+    animation:
+      spin 1s linear forwards infinite,
+      rainbow 20s ease-in-out infinite;
+}
+
+.Spinner::after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border: $inner-width $inner-style $red;
+    margin: auto;
+    animation:
+      scale 1.5s ease-in-out forwards infinite,
+      rainbow 20s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(-360deg); }
+    50%  { transform: rotate(-180deg); }
+    100% { transform: rotate(0); }
+}
+
+@keyframes scale {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rainbow {
+    0%    { border-color: $red; }
+    14.3% { border-color: $orange; }
+    28.6% { border-color: $yellow; }
+    42.9% { border-color: $green; }
+    57.2% { border-color: $lightblue; }
+    71.5% { border-color: $blue; }
+    85.8% { border-color: $violet; }
+    100%  { border-color: $red; }
+}
