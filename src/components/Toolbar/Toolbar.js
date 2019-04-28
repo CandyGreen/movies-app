@@ -14,8 +14,7 @@ const Toolbar = props => {
 
                 <Button
                     isLoading={ props.isLoading || props.search === '' }
-                    clicked={props.clicked}
-                    >
+                    clicked={props.clicked}>
                     { props.isLoading ? 'Searching' : 'Search' }
                 </Button>
             </div>

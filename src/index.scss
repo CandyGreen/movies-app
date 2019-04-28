@@ -22,5 +22,7 @@ a {
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    background-image: radial-gradient(#327aff, darken(#0057fa, 30%));
+    background-attachment: fixed;
 }

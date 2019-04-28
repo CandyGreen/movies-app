@@ -3,10 +3,11 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: 2px solid #ccc;
     border-radius: 2px;
     margin-bottom: 30px;
     min-height: 460px;
+    box-shadow: 0 3px 5px #111;
+    background-color: #fff;
 }
 
 .Poster {

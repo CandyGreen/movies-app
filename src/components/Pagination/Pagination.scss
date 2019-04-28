@@ -7,7 +7,6 @@
 
     span {
         width: 50px;
-        border: 2px solid #ccc;
         padding: 10px;
         box-sizing: border-box;
         display: flex;
@@ -17,16 +16,16 @@
         cursor: pointer;
         font-weight: bold;
         margin: 0 10px;
-        transition: border-color 200ms ease;
+        background-color: #fff;
+        transition: color 200ms ease;
 
         &:hover {
-            border-color: #00bfff;
+            color: #00bfff;
         }
 
         &.Selected {
-            transform: scale(1.1);
+            transform: scale(1.2);
             cursor: default;
-            border-color: #00bfff;
             background-color: #00bfff;
             color: #fff;
             text-shadow: 0 0 2px #fff;

@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: lighten(#eee, 4%);
+    background-color: #fff;
     padding: 6px 10px;
     border-radius: 2px;
 
@@ -20,6 +20,7 @@
         border: none;
         width: 100%;
         font-size: 1.1rem;
+        outline: none;
         
         &:focus::placeholder {
             color: #00bfff;

@@ -3,15 +3,14 @@ import React from 'react';
 import './Pagination.scss';
 
 const Pagination = props => {
-    let pagination = null, goBack = null, nextPage = null, lastPage;
+    let pagination = null, firstPage = null, previousPage = null, nextPage = null, lastPage = null;
+
+    if (props.currentPage > 2) {
+        firstPage = <span onClick={() => props.clicked(props.search, 1)}>1</span>;
+    }
 
     if (props.currentPage > 1) {
-        goBack = (
-            <span
-                onClick={() => props.clicked(props.search, props.currentPage - 1)}>
-                { props.currentPage - 1 }
-            </span>
-        );
+        previousPage = <span onClick={() => props.clicked(props.search, props.currentPage - 1)}>{ props.currentPage - 1 }</span>;
     }
 
     if (props.currentPage + 1 < props.totalPages) {
@@ -25,9 +24,9 @@ const Pagination = props => {
     if (props.totalPages) {
         pagination = (
             <div className="Pagination">
-                { props.currentPage > 2 ? <span onClick={() => props.clicked(props.search, 1)}>1</span> : null }
-                {goBack}
-                <span className="Selected" onClick={() => props.clicked(props.search, props.currentPage)}>{ props.currentPage }</span>
+                {firstPage}
+                {previousPage}
+                <span className="Selected">{ props.currentPage }</span>
                 {nextPage}
                 {lastPage}
             </div>

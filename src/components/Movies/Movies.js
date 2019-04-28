@@ -7,7 +7,7 @@ import Pagination from '../Pagination/Pagination';
 import './Movies.scss';
 
 const Movies = props => {
-    let content = null;
+    let content = <h1>Welcome to the Movie App!</h1>;
 
     if (props.movies) {
         if (!props.movies.length) {
