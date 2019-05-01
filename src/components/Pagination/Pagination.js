@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Pagination.scss';
 
@@ -34,6 +35,13 @@ const Pagination = ({ search, currentPage, totalPages, clicked }) => {
     }
 
     return pagination;
+};
+
+Pagination.propTypes = {
+    search: PropTypes.string.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number,
+    clicked: PropTypes.func.isRequired
 };
 
 export default Pagination;

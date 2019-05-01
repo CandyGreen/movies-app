@@ -1,12 +1,13 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './FullMovie.scss';
 
-const FullMovie = props => {
-    if (!props.movies) return <Redirect to="/" />;
+const FullMovie = ({ movies, match }) => {
+    if (!movies) return <Redirect to="/" />;
 
-    const movieInfo = props.movies.find(movie => movie.id === +props.match.params.id);
+    const movieInfo = movies.find(movie => movie.id === +match.params.id);
     const { title, poster, overview, releaseDate, backdropPath } = movieInfo;
 
     const imageSrc = poster
@@ -28,6 +29,10 @@ const FullMovie = props => {
             </div>
         </div>
     );
+};
+
+FullMovie.propTypes = {
+    movies: PropTypes.array.isRequired
 };
 
 export default withRouter(FullMovie);

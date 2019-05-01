@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Movie.scss';
 
-const Movie = props => {
-    const { id, title, poster, overview } = props.info;
+const Movie = ({ info }) => {
+    const { id, title, poster, overview } = info;
     const imageSrc = poster
         ? `https://image.tmdb.org/t/p/w500/${poster}`
         : 'http://www.newscrane.com/wp-content/uploads/2018/01/Newscrane-movie-feature3.jpg';
@@ -27,6 +28,10 @@ const Movie = props => {
             </div>
         </div>
     );
+};
+
+Movie.propTypes = {
+    info: PropTypes.object.isRequired
 };
 
 export default Movie;

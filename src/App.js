@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Spinner from './components/Spinner/Spinner';
 import Movies from './components/Movies/Movies';
@@ -53,6 +54,14 @@ const mapDispatchToProps = dispatch => {
     return {
         getMovies: (searchString, page) => dispatch(actions.getMovies(searchString, page))
     };
+};
+
+App.propTypes = {
+    movies: PropTypes.array,
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number,
+    isLoading: PropTypes.bool.isRequired,
+    getMovies: PropTypes.func.isRequired
 };
 
 export default connect(

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Toolbar from '../Toolbar/Toolbar';
 import Movie from './Movie/Movie';
@@ -45,6 +46,16 @@ const Movies = props => {
             </div>
         </React.Fragment>
     );
+};
+
+Movies.propTypes = {
+    movies: PropTypes.array,
+    search: PropTypes.string.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    totalPages: PropTypes.number,
+    getMovies: PropTypes.func.isRequired,
+    changed: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
 };
 
 export default withRouter(Movies);
